@@ -1,7 +1,32 @@
 {% extends 'template.html' %}
 {% block title %}Home{% endblock title %}
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+{% endblock styles %}
 {% block container %}
+<h1>Top 10 Crypto Currencies</h1>
+<div class="container">
     {% for i in data['data'] %}
-        {{i['name']}}
+        <form action="/result" method="post" class="card">
+            <input type="text" value="{{i['nameid']}}" name="crypto" id="crpto" class="hide">
+            <div class="crd-details">
+                <h2>{{i['name']}}</h2>
+                <h3>${{i['price_usd']}}</h3>
+                {% if "-" in i["percent_change_24h"] %}
+                    <h4 class="loss">{{i["percent_change_24h"]}}%<span class="material-symbols-outlined">
+                        arrow_downward
+                    </span></h4>
+                {% else %}
+                    <h4 class="profit">{{i["percent_change_24h"]}}%<span class="material-symbols-outlined">
+                        arrow_upward
+                    </span></h4>
+                {% endif %}
+            </div>
+            <button type="submit" class="material-symbols-outlined">
+                chevron_right
+            </button>
+        </form>
     {% endfor %}
+</div>
 {% endblock container %}

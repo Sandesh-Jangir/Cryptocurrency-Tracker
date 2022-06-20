@@ -1,11 +1,61 @@
 {% extends 'template.html' %}
 {% block title %}
-    {{crypto['name']}}
+{{crypto['name']}}
 {% endblock title %}
-{% block container %}
-    {% if error %}
-        <h1>Can't find the entered Crypto in Data Base | Please Check the spelling and try again</h1>
-    {% endif %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
 
-    {{crypto}}
+{% endblock styles %}
+{% block container %}
+{% if error %}
+<div class="error">Can't find the entered Crypto in Data Base | Please Check the spelling and try again</div>
+{% else %}
+<div class="main">
+    <div class="side1">
+        <div class="top">
+            <h1>{{crypto['name']}}</h1>
+            {% if "-" in crypto["percent_change_24h"] %}
+            <h3 class="loss">${{crypto['price_usd']}}</h3>
+            {% else %}
+            <h3 class="profit">${{crypto['price_usd']}}</h3>
+            {% endif %}
+            <h3>Global Rank : {{crypto['rank']}}</h3>
+        </div>
+        <div class="bottom">
+            <h3>Price Change Current Hour :
+                {% if "-" in crypto["percent_change_1h"] %}
+                <span class="loss">{{crypto["percent_change_1h"]}}%</span>
+                {% else %}
+                <span class="profit">{{crypto["percent_change_1h"]}}%</span>
+                {% endif %}
+            </h3>
+            <h3>Price Change Today : {% if "-" in crypto["percent_change_24h"] %}
+                <span class="loss">{{crypto["percent_change_24h"]}}%</span>
+                {% else %}
+                <span class="profit">{{crypto["percent_change_24h"]}}%</span>
+                {% endif %}
+            </h3>
+            <h3>Price Change This Week : {% if "-" in crypto["percent_change_7d"] %}
+                <span class="loss">{{crypto["percent_change_7d"]}}%</span>
+                {% else %}
+                <span class="profit">{{crypto["percent_change_7d"]}}%</span>
+                {% endif %}
+            </h3>
+        </div>
+    </div>
+    <div class="side2">
+        <h1>{{crypto['name']}} to USD</h1>
+        <div class="assetid profit">Asset ID : {{crypto['symbol']}}</div>
+        <div class="mcap">Market Capitalization : {{crypto['market_cap_usd']}}</div>
+        <div class="csupply">Circulating Supply : {{crypto['csupply']}}</div>
+        <div class="volume">24-Hour Volume : {{crypto['volume24']}}</div>
+    </div>
+</div>
+
+{% endif %}
+<a href="/" class="material-symbols-outlined">
+    home
+</a>
+
 {% endblock container %}
