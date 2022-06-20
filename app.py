@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import requests
 import json
 app = Flask(__name__)
@@ -17,5 +17,21 @@ jsonified_all_cryptos = json.loads(all_cryptos.text)
 @app.route('/')
 def hello_world():
     return render_template("home.html")
+
+@app.route("/result", methods=['GET','POST'])
+def result():
+    # Fetching input
+    searched_crypto = request.form['crypto'].lower()
+    # Filtering Datalist
+    crypto_currencies = jsonified_all_cryptos['data']
+
+    # Searching in Filtered Data List
+    for crypto in crypto_currencies:
+        if crypto['nameid']==searched_crypto:
+            return crypto
+        else:
+            continue
+        
+    return "none"
 
 app.run(debug=True)

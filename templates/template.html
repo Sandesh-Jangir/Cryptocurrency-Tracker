@@ -7,8 +7,8 @@
     <title>Crypto Tracker | {% block title %}{% endblock title %}</title>
 </head>
 <body>
-    <form action="/result">
-        <input type="text">
+    <form action="/result" method="post">
+        <input type="text" name="crypto" id="crypto">
         <button type="submit">Track</button>
     </form>
     {% block container %}
