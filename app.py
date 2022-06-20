@@ -14,9 +14,13 @@ all_cryptos = requests.request("GET", all_cryptos_url, headers=headers, params=q
 
 # Converting data in JSON format
 jsonified_all_cryptos = json.loads(all_cryptos.text)
+
+# Fetching Top 10 Crypto Currencies
+top_ten_crypto_querystring = {"start":"0", "limit":"10"}
+top_ten_crypto = requests.request("GET", all_cryptos_url, headers=headers, params=top_ten_crypto_querystring)
 @app.route('/')
-def hello_world():
-    return render_template("home.html")
+def home():
+    return render_template("home.html", data=json.loads(top_ten_crypto.text))
 
 @app.route("/result", methods=['GET','POST'])
 def result():
@@ -28,10 +32,10 @@ def result():
     # Searching in Filtered Data List
     for crypto in crypto_currencies:
         if crypto['nameid']==searched_crypto:
-            return crypto
+            return render_template('result.html', crypto=crypto, error=False)
         else:
             continue
-        
-    return "none"
+
+    return render_template("result.html", crypto="",error=True)
 
 app.run(debug=True)

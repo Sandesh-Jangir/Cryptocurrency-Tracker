@@ -1,2 +1,7 @@
 {% extends 'template.html' %}
 {% block title %}Home{% endblock title %}
+{% block container %}
+    {% for i in data['data'] %}
+        {{i['name']}}
+    {% endfor %}
+{% endblock container %}

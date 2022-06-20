@@ -1,0 +1,11 @@
+{% extends 'template.html' %}
+{% block title %}
+    {{crypto['name']}}
+{% endblock title %}
+{% block container %}
+    {% if error %}
+        <h1>Can't find the entered Crypto in Data Base | Please Check the spelling and try again</h1>
+    {% endif %}
+
+    {{crypto}}
+{% endblock container %}
