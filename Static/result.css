@@ -84,13 +84,22 @@
 }
 @media (max-width:900px) {
     .material-symbols-outlined{
-        top:5vh;
-        bottom: none;
-
+        top:2vh;
+        height: 25px;
     }
 }
 @media (max-width:750px) {
+    *{
+        font-size: x-small;
+    }
     .main{
         flex-direction: column;
+        align-items: center;
+        height: max-content;
+        gap: 2rem;
+        width: 100%;
+    }
+    .side1, .side2{
+        width: 90%;
     }
 }
