@@ -103,3 +103,8 @@
         width: 90%;
     }
 }
+@media (max-width: 450px){
+    .material-symbols-outlined{
+        height: 20px;
+    }
+}
