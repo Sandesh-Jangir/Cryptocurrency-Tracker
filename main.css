@@ -1,4 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap');
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Inter', sans-serif;
+    --main-color:#38405F;
+    --main-bg-color:#0E131F;
+}
+body{
+    background-color: var(--main-bg-color);
+}
+.form{
+    width: fit-content;
+    height: 2.5rem;
+    display: flex;
+    width: 60vw;
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 3rem;
+}
+.form input{
+    width: 85%;
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    font-size: 20px;
+    color: var(--main-color);
+}
+.form a{
+    width: 15%;
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form a img{
+    height: 1.5rem;
+}
+.container{
+    width: 85vw;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -25%);
+}
+.container h1{
+    color: white;
+    letter-spacing: 1.5px;
+    font-size: 3rem;
+    width: fit-content;
+    position: relative;
+}
+.container h1::before{
+    content: '';
+    width: 45%;
+    height: 8px;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    background-color: var(--main-color);
+    border-radius: 20px;
+}
+#featuring{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5rem;
+}
+.card{
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    height: 8rem;
+    width: 12rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.heading{
+    font-weight: 900;
+    font-size: 30px;
+    color: var(--main-color);
+    letter-spacing: 1px;
+}
+.cur-prc{
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--main-bg-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.prc-chng-amnt{
+    font-size: 15px;
+    font-weight: bold;
+    color: green;
+}
+.prc-chng{
+    color: green;
+    font-weight: bold;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.prc-chng img{
+    height: 0.8rem;
 }
