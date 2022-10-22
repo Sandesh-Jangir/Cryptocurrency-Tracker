@@ -15,8 +15,8 @@ const getData = async ()=>{
 }
 
 // Filtering the data for the featuring list
-const getFeaturing = ()=>{
-  getData().then((data)=>{
+const getFeaturing = async ()=>{
+  let data = await getData();
     let currencies = Object.entries(data)[0][1];
     let currencyTrends = [] // All changes in past 24hour
     for(const currency in currencies){
@@ -37,5 +37,4 @@ const getFeaturing = ()=>{
     }
     
     return (featuringCurrencies);
-  })
-}
+  }
