@@ -13,3 +13,29 @@ const getData = async ()=>{
 
       return jsonifiedData;
 }
+
+// Filtering the data for the featuring list
+const getFeaturing = ()=>{
+  getData().then((data)=>{
+    let currencies = Object.entries(data)[0][1];
+    let currencyTrends = [] // All changes in past 24hour
+    for(const currency in currencies){
+      currencyTrends.push(Number(currencies[currency]['percent_change_24h']));
+    }
+    currencyTrends.sort();
+    let trending = currencyTrends.slice(-4); // Getting the top 4 trending currencies' percent change.
+    let featuringCurrencies = [];
+
+    // Filtering the data of top trending currencies and adding in the featuringCurrencies[]
+    for (let i = 0; i < trending.length; i++) {
+      for (let k = 0; k < currencies.length; k++) {
+        const element = currencies[k];
+        if(element['percent_change_24h'] == trending[i]){
+          featuringCurrencies.push(element)
+        }
+      }
+    }
+    
+    return (featuringCurrencies);
+  })
+}
