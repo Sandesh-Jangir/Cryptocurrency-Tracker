@@ -50,7 +50,6 @@ const updateFeaturing = ()=>{
       <div class="prc-chng">+${parseFloat(featuringCurrencies[id]['percent_change_24h']).toFixed(2)}% <img src="./resources/uptrend.svg"></div>
       </div>
       `
-      console.log(featuringCurrencies[id])
     }
   })
 }

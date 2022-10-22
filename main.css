@@ -62,24 +62,24 @@ body{
     border-radius: 20px;
 }
 #featuring{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     margin-top: 5rem;
+    gap: 2rem;
 }
 .card{
     background-color: white;
     padding: 30px;
     border-radius: 15px;
     height: 8rem;
-    width: 12rem;
+    /* width: 12rem; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 .heading{
     font-weight: 900;
-    font-size: 30px;
+    font-size:30px;
     color: var(--main-color);
     letter-spacing: 1px;
 }
