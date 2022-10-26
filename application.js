@@ -44,14 +44,19 @@ const updateFeaturing = ()=>{
   getFeaturing().then((featuringCurrencies) => {
     for(id in featuringCurrencies.reverse()){
       document.getElementById('featuring').innerHTML += `
-      <div class="card">
+      <a href="#" onclick="toAnalytics()" class="card">
       <div class="heading">${featuringCurrencies[id]['name']}</div>
       <div class="cur-prc">$${parseFloat(featuringCurrencies[id]['price_usd']).toFixed(2)}<div class="prc-chng-amnt">+$${(featuringCurrencies[id]['percent_change_24h']*featuringCurrencies[id]['price_usd']/100).toFixed(2)}</div></div>
       <div class="prc-chng">+${parseFloat(featuringCurrencies[id]['percent_change_24h']).toFixed(2)}% <img src="./resources/uptrend.svg"></div>
-      </div>
+      </a>
       `
     }
   })
+}
+
+// Function to navigate toward the analytics section
+const toAnalytics = ()=>{
+  document.getElementById('analytics').style.transform = "translateX(0%)"
 }
 
 updateFeaturing();
