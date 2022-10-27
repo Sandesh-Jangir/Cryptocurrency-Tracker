@@ -20,10 +20,13 @@ a{
     height: 2.5rem;
     display: flex;
     width: 60vw;
-    margin: auto;
     border-radius: 10px;
     overflow: hidden;
     margin-top: 3rem;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
 }
 .form input{
     width: 85%;
@@ -120,7 +123,78 @@ a{
     position: fixed;
     top:0;
     left: 0;
-    background-color: black;
+    background-color: var(--main-bg-color);
     transform: translateX(100%);
     transition:.5s ease;
+}
+.home{
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: min-content;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 3rem;
+}
+.home img{
+    height: 20px;
+}
+.cur-name{
+    font-size: 3rem;
+    color: white;
+    position: absolute;
+    top: 9rem;
+    left:50%;
+    transform: translateX(-50%);
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+.cur-price{
+    position: absolute;
+    top: 9rem;
+    right: 3rem;
+    font-size: 20px;
+    color: green;    
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-weight: bolder;
+    letter-spacing: 2px;
+}
+.statistics{
+    margin: 0px 3rem;
+    margin-top: 12rem;
+    display: flex;
+    gap: 3rem;
+}
+.statistics >*{
+    background-color: white;
+    border-radius: 10px;
+    height: 45vh;
+}
+.statistics >* h1{
+    color: var(--main-bg-color);
+    margin: 2rem auto;
+    text-align: center;
+}
+.statistics >* div{
+    margin: 20px 3rem;
+    color: var(--main-color);
+}
+.statistics >* span{
+    font-weight: bolder;
+}
+.asset-info{
+    width: 60%;
+}
+.ups-downs{
+    width: 40%;
+}
+.ups-downs img{
+    height: 1rem;
+    margin-left: 10px;
+}
+.ups-downs span{
+    color: green;
 }
