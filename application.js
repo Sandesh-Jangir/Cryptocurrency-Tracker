@@ -43,8 +43,9 @@ const getFeaturing = async ()=>{
 const updateFeaturing = ()=>{
   getFeaturing().then((featuringCurrencies) => {
     for(id in featuringCurrencies.reverse()){
+      let assetName = featuringCurrencies[id]['name'];
       document.getElementById('featuring').innerHTML += `
-      <a href="#" onclick="toAnalytics()" class="card">
+      <a href="#" onclick="event.stopPropagation(); toAnalytics('${assetName}');" class="card">
       <div class="heading">${featuringCurrencies[id]['name']}</div>
       <div class="cur-prc">$${parseFloat(featuringCurrencies[id]['price_usd']).toFixed(2)}<div class="prc-chng-amnt">+$${(featuringCurrencies[id]['percent_change_24h']*featuringCurrencies[id]['price_usd']/100).toFixed(2)}</div></div>
       <div class="prc-chng">+${parseFloat(featuringCurrencies[id]['percent_change_24h']).toFixed(2)}% <img src="./resources/uptrend.svg"></div>
@@ -55,8 +56,20 @@ const updateFeaturing = ()=>{
 }
 
 // Function to navigate toward the analytics section
-const toAnalytics = ()=>{
-  document.getElementById('analytics').style.transform = "translateX(0%)"
+const toAnalytics = (name)=>{
+  let container = document.getElementById('analytics');
+  container.style.transform = "translateX(0%)";
+  
+  getData().then((jsonifiedData)=>{
+    console.log("In Then")
+    let dataArray = Object.entries(jsonifiedData);
+    let assetArray = dataArray[0][1]
+    for(asset in assetArray){
+      if (assetArray[asset]["name"] == name){
+        console.log(assetArray[asset]);
+      }
+    }
+  })
 }
 
 updateFeaturing();
