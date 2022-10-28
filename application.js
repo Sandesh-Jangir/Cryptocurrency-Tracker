@@ -61,14 +61,36 @@ const toAnalytics = (name)=>{
   container.style.transform = "translateX(0%)";
   
   getData().then((jsonifiedData)=>{
-    console.log("In Then")
     let dataArray = Object.entries(jsonifiedData);
     let assetArray = dataArray[0][1]
     for(asset in assetArray){
       if (assetArray[asset]["name"] == name){
-        console.log(assetArray[asset]);
-      }
+
+        //Adding dynamic values to the analytics page.
+        document.getElementById('cr-name').innerText = assetArray[asset]["name"];
+        document.getElementById('cr-price').innerText =`$${assetArray[asset]["price_usd"]}`;
+
+          //Uptrend and Downtrend values.
+        if(assetArray[asset]["percent_change_24h"]>0){
+          document.getElementById('th').innerHTML += `<span style="color:green;" > ${assetArray[asset]["percent_change_24h"]}% <img src="./resources/uptrend.svg"></span>`;
+        }else{
+          document.getElementById('th').innerHTML += `<span style="color:red;" > ${assetArray[asset]["percent_change_24h"]}% <img class="downtrend" src="./resources/downtrend.svg"></span>`;
+        }
+
+        if(assetArray[asset]["percent_change_1h"]>0){
+          document.getElementById('t').innerHTML += `<span style="color:green;" > ${assetArray[asset]["percent_change_1h"]}% <img src="./resources/uptrend.svg"></span>`;
+        }else{
+          document.getElementById('t').innerHTML += `<span style="color:red;" > ${assetArray[asset]["percent_change_1h"]}% <img class="downtrend" src="./resources/downtrend.svg"></span>`;
+        }
+
+
+        if(assetArray[asset]["percent_change_7d"]>0){
+          document.getElementById('tw').innerHTML += `<span style="color:green;" > ${assetArray[asset]["percent_change_7d"]}% <img src="./resources/uptrend.svg"></span>`;
+        }else{
+          document.getElementById('tw').innerHTML += `<span style="color:red;" > ${assetArray[asset]["percent_change_7d"]}% <img class="downtrend" src="./resources/downtrend.svg"></span>`;
+        }
     }
+  }  
   })
 }
 
