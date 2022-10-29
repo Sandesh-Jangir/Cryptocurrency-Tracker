@@ -117,6 +117,11 @@ const toAnalytics = (name) => {
             "tw"
           ).innerHTML = `This Week : <span style="color:red;" > ${assetArray[asset]["percent_change_7d"]}% <img class="downtrend" src="./resources/downtrend.svg"></span>`;
         }
+
+        // Updating Asset Info
+        document.getElementById("mc").innerHTML = `Market Capitalisation : <span>${assetArray[asset]["market_cap_usd"]}</span>`
+        document.getElementById("cs").innerHTML = `Circulating Supply : <span>${assetArray[asset]["csupply"]}</span>`
+        document.getElementById("hv").innerHTML = `24-Hours Volume : <span>${assetArray[asset]["volume24"]}</span>`
       }
     }
   });
