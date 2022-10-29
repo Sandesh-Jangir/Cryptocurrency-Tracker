@@ -89,33 +89,33 @@ const toAnalytics = (name) => {
         if (assetArray[asset]["percent_change_24h"] > 0) {
           document.getElementById(
             "th"
-          ).innerHTML += `<span style="color:green;" > ${assetArray[asset]["percent_change_24h"]}% <img src="./resources/uptrend.svg"></span>`;
+          ).innerHTML = `Today : <span style="color:green;" > ${assetArray[asset]["percent_change_24h"]}% <img src="./resources/uptrend.svg"></span>`;
         } else {
           document.getElementById(
             "th"
-          ).innerHTML += `<span style="color:red;" > ${assetArray[asset]["percent_change_24h"]}% <img class="downtrend" src="./resources/downtrend.svg"></span>`;
+          ).innerHTML = `Today : <span style="color:red;" > ${assetArray[asset]["percent_change_24h"]}% <img class="downtrend" src="./resources/downtrend.svg"></span>`;
         }
 
         // percent_change_1h
         if (assetArray[asset]["percent_change_1h"] > 0) {
           document.getElementById(
             "t"
-          ).innerHTML += `<span style="color:green;" > ${assetArray[asset]["percent_change_1h"]}% <img src="./resources/uptrend.svg"></span>`;
+          ).innerHTML = `This Hour : <span style="color:green;" > ${assetArray[asset]["percent_change_1h"]}% <img src="./resources/uptrend.svg"></span>`;
         } else {
           document.getElementById(
             "t"
-          ).innerHTML += `<span style="color:red;" > ${assetArray[asset]["percent_change_1h"]}% <img class="downtrend" src="./resources/downtrend.svg"></span>`;
+          ).innerHTML = `This Hour : <span style="color:red;" > ${assetArray[asset]["percent_change_1h"]}% <img class="downtrend" src="./resources/downtrend.svg"></span>`;
         }
 
         // percent_change_7d
         if (assetArray[asset]["percent_change_7d"] > 0) {
           document.getElementById(
             "tw"
-          ).innerHTML += `<span style="color:green;" > ${assetArray[asset]["percent_change_7d"]}% <img src="./resources/uptrend.svg"></span>`;
+          ).innerHTML = `This Week : <span style="color:green;" > ${assetArray[asset]["percent_change_7d"]}% <img src="./resources/uptrend.svg"></span>`;
         } else {
           document.getElementById(
             "tw"
-          ).innerHTML += `<span style="color:red;" > ${assetArray[asset]["percent_change_7d"]}% <img class="downtrend" src="./resources/downtrend.svg"></span>`;
+          ).innerHTML = `This Week : <span style="color:red;" > ${assetArray[asset]["percent_change_7d"]}% <img class="downtrend" src="./resources/downtrend.svg"></span>`;
         }
       }
     }
