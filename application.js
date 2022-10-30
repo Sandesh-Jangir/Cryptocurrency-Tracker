@@ -46,7 +46,7 @@ const getFeaturing = async () => {
 const updateFeaturing = () => {
   getFeaturing().then((featuringCurrencies) => {
     for (id in featuringCurrencies.reverse()) {
-      let assetName = featuringCurrencies[id]["name"];
+      let assetName = featuringCurrencies[id]["nameid"];
       document.getElementById("featuring").innerHTML += `
       <a href="#" onclick="event.stopPropagation(); toAnalytics('${assetName}');" class="card">
       <div class="heading">${featuringCurrencies[id]["name"]}</div>
@@ -75,7 +75,7 @@ const toAnalytics = (name) => {
     let dataArray = Object.entries(jsonifiedData);
     let assetArray = dataArray[0][1];
     for (asset in assetArray) {
-      if (assetArray[asset]["name"] == name) {
+      if (assetArray[asset]["nameid"] == name) {
         //Adding dynamic values to the analytics page.
         document.getElementById("cr-name").innerText =
           assetArray[asset]["name"];
@@ -126,6 +126,15 @@ const toAnalytics = (name) => {
     }
   });
 };
+
+// Serching the cryptocurrency
+const searchAsset = ()=>{
+  let searchedTerm = document.getElementById("input").value;
+  if (searchedTerm != ""){
+    toAnalytics(searchedTerm.toLowerCase());
+  }
+  document.getElementById("input").value = "";
+}
 
 const backToHome = ()=>{
   document.getElementById('analytics').style.transform = "translateX(100%)";
