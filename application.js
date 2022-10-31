@@ -131,12 +131,29 @@ const toAnalytics = (name) => {
 const searchAsset = ()=>{
   let searchedTerm = document.getElementById("input").value;
   if (searchedTerm != ""){
-    toAnalytics(searchedTerm.toLowerCase());
+    getData().then((jsonifiedData)=>{
+      let Array = Object.entries(jsonifiedData);
+      let cryptoArray = Array[0][1];
+      for(let currency in cryptoArray ){
+        if(cryptoArray[currency]["nameid"]==searchedTerm){
+          toAnalytics(searchedTerm.toLowerCase());
+          break;
+        }else{
+          document.getElementById("error_container").style.display = "flex";
+        }
+      }
+    }
+    )
   }
+  
   document.getElementById("input").value = "";
 }
 
 const backToHome = ()=>{
   document.getElementById('analytics').style.transform = "translateX(100%)";
+}
+
+const closeError = ()=>{
+  document.getElementById("error_container").style.display = "none";
 }
 updateFeaturing();

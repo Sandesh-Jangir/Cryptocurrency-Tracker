@@ -203,5 +203,33 @@ a{
 }
 .downtrend{
     height: 2rem !important;
-    /* background-color: #0E131F; */
+}
+#error_container{
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    gap: 4rem;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: #1f1f1fd5;
+    z-index: 10;
+}
+#error_container img{
+    height: 70vh;
+}
+#error_container p{
+    color: white;
+    font-weight: 800;
+    font-size: 30px;
+    letter-spacing: 2px;
+    width: 30vw;
+}
+#error_container a{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-weight: 800;
+    font-size: 2rem;
 }
