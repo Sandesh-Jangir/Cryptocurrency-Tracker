@@ -212,7 +212,7 @@ a{
     justify-content: center;
     align-items: center;
     position: absolute;
-    background-color: #1f1f1fd5;
+    background-color: #1f1f1feb;
     z-index: 10;
 }
 #error_container img{
@@ -220,6 +220,7 @@ a{
 }
 #error_container p{
     color: white;
+    text-align: justify;
     font-weight: 800;
     font-size: 30px;
     letter-spacing: 2px;
