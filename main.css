@@ -234,3 +234,32 @@ a{
     font-weight: 800;
     font-size: 2rem;
 }
+
+
+/* Making it Reponsive */
+/* Tablet View */
+@media (max-width:820px) {
+    #featuring{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Mobile View */
+@media (max-width:600px) {
+    #featuring{
+        grid-template-columns: 1fr;
+    }
+    .container h1{
+        font-size: 2rem;
+    }
+    .heading{
+        font-size: 22px;
+    }
+    .cur-prc{
+        font-size: 19px;
+    }
+    .container{
+        top: 20%;
+        transform: translateX(-50%);
+    }
+}
