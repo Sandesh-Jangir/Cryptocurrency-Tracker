@@ -242,6 +242,20 @@ a{
     #featuring{
         grid-template-columns: 1fr 1fr;
     }
+    .statistics{
+        flex-direction: column;
+        align-items: center;
+    }
+    .ups-downs{
+        padding-bottom: 2rem;
+        width: 80vw;
+        height: fit-content;
+    }
+    .asset-info{
+        width: 80vw;
+        padding-bottom: 2rem;
+        height: fit-content;
+    }
 }
 
 /* Mobile View */
@@ -261,5 +275,46 @@ a{
     .container{
         top: 20%;
         transform: translateX(-50%);
+    }
+    .cur-name{
+        transform: translateX(0%);
+        position: initial;
+    }
+    .cur-price{
+        position: initial;
+        top:auto;
+    }
+    .statistics h1{
+        font-size: 1.5rem;
+    }
+    .statistics >* div{
+        width: 100%;
+        margin: 20px 2rem;
+    }
+    .ups-downs > div{
+        font-size: 15px;
+        
+    }
+    .asset-info > div{
+        font-size: 12px;
+        letter-spacing: 0;
+    }
+
+    .ups-downs, .asset-info{
+        padding-bottom: 1rem;
+    }
+    .namenprice{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap:1rem;
+        margin-left: 10vw;
+    }
+    .home{
+        margin: 7rem 0rem 1rem 10vw;
+    }
+    .statistics{
+        margin-top: 3rem;
+        gap: 1.5rem;
     }
 }
