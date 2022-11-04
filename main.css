@@ -256,6 +256,15 @@ a{
         padding-bottom: 2rem;
         height: fit-content;
     }
+    .form{
+        width: 80vw;
+    }
+    .home{
+        margin-left: 1.5rem;
+    }
+    .form a{
+        width: 30%;
+    }
 }
 
 /* Mobile View */
