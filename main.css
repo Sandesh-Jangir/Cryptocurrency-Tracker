@@ -23,7 +23,7 @@ a{
     border-radius: 10px;
     overflow: hidden;
     margin-top: 3rem;
-    position: fixed;
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
@@ -81,7 +81,6 @@ a{
     padding: 30px;
     border-radius: 15px;
     height: 8rem;
-    /* width: 12rem; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -272,6 +271,11 @@ a{
     #featuring{
         grid-template-columns: 1fr;
     }
+    #analytics{
+        height: fit-content;
+        padding-bottom: 2rem;
+        position: absolute;
+    }
     .container h1{
         font-size: 2rem;
     }
@@ -300,17 +304,29 @@ a{
         width: 100%;
         margin: 20px 2rem;
     }
-    .ups-downs > div{
-        font-size: 15px;
-        
-    }
-    .asset-info > div{
-        font-size: 12px;
+    .ups-downs > div, .asset-info > div{
+        font-size: 18px;
         letter-spacing: 0;
     }
+    .asset-info > div{
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 2rem;
+        font-weight: bold;
+    }
+    .asset-info span{
+        font-weight: 300;
+    }
+    .ups-downs h1, .asset-info h1{
+        font-size: 1.8em;
+        margin: 3rem 0;
+    }
 
-    .ups-downs, .asset-info{
-        padding-bottom: 1rem;
+    .ups-downs{
+        height: 300px;
+    }
+    .asset-info{
+        height: 500px;
     }
     .namenprice{
         display: flex;
@@ -323,7 +339,7 @@ a{
         margin: 7rem 0rem 1rem 10vw;
     }
     .statistics{
-        margin-top: 3rem;
+        margin-top: 5rem !important;
         gap: 1.5rem;
     }
 }
